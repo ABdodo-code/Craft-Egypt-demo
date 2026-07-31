@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر | Craft Egypt</title>
+    <link rel="icon" type="image/png" href="logo-Tab.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="store.css">
+</head>
+<body>
+
+<header>
+    <a class="logo">Craft Egypt</a>
+    <div class="utility-group">
+        <a href="../Homepage/Homepage.html" class="header-link home-link">الرئيسية</a>
+        <div class="header-cart" onclick="showCartView()">
+            <span class="text">السلة</span>
+            <span class="count" id="cartCount">0</span>
+        </div>
+    </div>
+</header>
+
+    <div class="filter-section">
+        <button class="filter-btn" id="filterBtn" onclick="toggleMenu()">
+            كل المنتجات<span class="arrow-icon">▼</span>
+        </button>
+
+        <ul class="dropdown-menu" id="craftMenu">
+            <li class="dropdown-close" id="closeMenuBtn" onclick="toggleMenu()">✕</li>
+            <li class="dropdown-item active" onclick="filterByCraft('all', this)">كل المنتجات</li>
+            <li class="dropdown-item" onclick="filterByCraft('pottery', this)">الفخار اليدوي</li>
+            <li class="dropdown-item" onclick="filterByCraft('arabesque', this)">الخشب والأرابيسك</li>
+            <li class="dropdown-item" onclick="filterByCraft('copper', this)">النحاس المطروق</li>
+            <li class="dropdown-item" onclick="filterByCraft('haseer', this)">الحصير اليدوي</li>
+            <li class="dropdown-item" onclick="filterByCraft('embroidery', this)">التطريز اليدوي</li>
+            <li class="dropdown-item" onclick="filterByCraft('carpet', this)">السجاد والكليم اليدوي</li>
+            <li class="dropdown-item" onclick="filterByCraft('khayamiya', this)">فن الخيامية</li>
+            <li class="dropdown-item" onclick="filterByCraft('qulla', this)">صناعة القلل</li>
+            <li class="dropdown-item" onclick="filterByCraft('leather', this)">الجلود الطبيعية</li>
+            <li class="dropdown-item" onclick="filterByCraft('baskets', this)">السلال والخوص</li>
+            <li class="dropdown-item" onclick="filterByCraft('glass', this)">الزجاج المنفوخ</li>
+            <li class="dropdown-item" onclick="filterByCraft('metal', this)">المعادن اليدوية والفضة</li>
+            <li class="dropdown-item" onclick="filterByCraft('ceramic', this)">الخزف الملون</li>
+            <li class="dropdown-item" onclick="filterByCraft('mosaic', this)">الفسيفساء والموزاييك</li>
+            <li class="dropdown-item" onclick="filterByCraft('woodcarving', this)">نحت الخشب</li>
+        </ul>
+    </div>
+
+    <div class="store-container">
+        <div class="products-container" id="productsGrid">
+
+            <div class="product-card" data-craft="pottery" id="pottery-vase">
+                <img src="pottery_1/pottery.1.jfif" class="product-img" alt="فازة فخار ريفية">
+                <div class="card-content">
+                    <h3 class="product-title">فازة فخار ريفية</h3>
+                    <div class="product-price">150 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فازة فخار ريفية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-pot">
+                <img src="pottery_1/pottery.2.jfif" class="product-img" alt="طاجن فخار للطهي">
+                <div class="card-content">
+                    <h3 class="product-title">طاجن فخار للطهي</h3>
+                    <div class="product-price">80 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طاجن فخار للطهي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-planter">
+                <img src="pottery_1/pottery.3.jpeg" class="product-img" alt="قصرية زرع فخار">
+                <div class="card-content">
+                    <h3 class="product-title">قصرية زرع فخار مزخرفة</h3>
+                    <div class="product-price">120 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قصرية زرع فخار مزخرفة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-jug">
+                <img src="pottery_1/pottery.4.jpeg" class="product-img" alt="إبريق ماء فخاري">
+                <div class="card-content">
+                    <h3 class="product-title">إبريق ماء فخاري كلاسيكي</h3>
+                    <div class="product-price">110 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('إبريق ماء فخاري كلاسيكي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-mug">
+                <img src="pottery_1/pottery.5.webp" class="product-img" alt="مج فخاري حراري">
+                <div class="card-content">
+                    <h3 class="product-title">مج فخاري حراري للمشروبات</h3>
+                    <div class="product-price">65 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مج فخاري حراري', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-plate">
+                <img src="pottery_1/pottery.6.webp" class="product-img" alt="طبق تقديم فخاري">
+                <div class="card-content">
+                    <h3 class="product-title">طبق تقديم فخاري منقوش</h3>
+                    <div class="product-price">95 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طبق تقديم فخاري منقوش', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-bowl">
+                <img src="pottery_1/pottery.7.jpeg" class="product-img" alt="طبق مقبلات فخاري">
+                <div class="card-content">
+                    <h3 class="product-title">طبق مقبلات فخاري ريفي</h3>
+                    <div class="product-price">50 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طبق مقبلات فخاري ريفي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="pottery" id="pottery-modern-vase">
+                <img src="pottery_1/pottery.8.webp" class="product-img" alt="فازة فخار مودرن">
+                <div class="card-content">
+                    <h3 class="product-title">فازة فخار مودرن ملونة</h3>
+                    <div class="product-price">175 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فازة فخار مودرن ملونة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="arabesque" id="jewelry-box">
+                <img src="wood_2/wood.1.jfif" class="product-img" alt="صندوق مجوهرات">
+                <div class="card-content">
+                    <h3 class="product-title">صندوق مجوهرات أرابيسك</h3>
+                    <div class="product-price">320 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صندوق مجوهرات أرابيسك', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="chess-set">
+                <img src="wood_2/wood.2.jfif" class="product-img" alt="طقم شطرنج">
+                <div class="card-content">
+                    <h3 class="product-title">طقم شطرنج مطعم بالصدف</h3>
+                    <div class="product-price">1200 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طقم شطرنج مطعم بالصدف', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="bamboo-chair">
+                <img src="wood_2/wood.3.jfif" class="product-img" alt="كرسي بامبو">
+                <div class="card-content">
+                    <h3 class="product-title">كرسي بامبو صغير</h3>
+                    <div class="product-price">400 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('كرسي بامبو صغير', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="quran-holder">
+                <img src="wood_2/wood.4.jpeg" class="product-img" alt="حامل مصحف خشبي">
+                <div class="card-content">
+                    <h3 class="product-title">حامل مصحف خشبي أرابيسك</h3>
+                    <div class="product-price">280 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حامل مصحف خشبي أرابيسك', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="serving-tray">
+                <img src="wood_2/wood.5.jpeg" class="product-img" alt="صينية تقديم خشبية">
+                <div class="card-content">
+                    <h3 class="product-title">صينية تقديم خشبية</h3>
+                    <div class="product-price">350 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صينية تقديم خشبية مطعمة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="arabesque-lamp">
+                <img src="wood_2/wood.6.jpeg" class="product-img" alt="أباجورة أرابيسك">
+                <div class="card-content">
+                    <h3 class="product-title">أباجورة أرابيسك تراثية</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أباجورة أرابيسك تراثية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="mirror-frame">
+                <img src="wood_2/wood.7.jpeg" class="product-img" alt="برواز مرآة أرابيسك">
+                <div class="card-content">
+                    <h3 class="product-title">برواز مرآة أرابيسك جداري</h3>
+                    <div class="product-price">850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('برواز مرآة أرابيسك', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="arabesque" id="tissue-box">
+                <img src="wood_2/wood.8.webp" class="product-img" alt="علبة مناديل أرابيسك">
+                <div class="card-content">
+                    <h3 class="product-title">علبة مناديل أرابيسك فاخرة</h3>
+                    <div class="product-price">190 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('علبة مناديل أرابيسك فاخرة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="copper" id="copper-tray">
+                <img src="Copper_3/copper.1.jfif" class="product-img" alt="صينية نحاس">
+                <div class="card-content">
+                    <h3 class="product-title">صينية نحاس منقوشة (وسط)</h3>
+                    <div class="product-price">850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صينية نحاس منقوشة (وسط)', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="copper-pot">
+                <img src="Copper_3/copper.2.jfif" class="product-img" alt="إبريق قهوة نحاسي">
+                <div class="card-content">
+                    <h3 class="product-title">إبريق قهوة نحاسي قديم</h3>
+                    <div class="product-price">600 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('إبريق قهوة نحاسي قديم', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="copper-lantern">
+                <img src="Copper_3/copper.3.jfif" class="product-img" alt="فانوس نحاس">
+                <div class="card-content">
+                    <h3 class="product-title">فانوس نحاس تعليق</h3>
+                    <div class="product-price">350 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فانوس نحاس تعليق', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="censer-copper">
+                <img src="Copper_3/copper.4.jpeg" class="product-img" alt="مبخرة نحاسية">
+                <div class="card-content">
+                    <h3 class="product-title">مبخرة نحاسية مطروقة يدوياً</h3>
+                    <div class="product-price">220 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مبخرة نحاسية مطروقة يدوياً', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="copper-chandelier">
+                <img src="Copper_3/copper.5.jpeg" class="product-img" alt="نجفة نحاس">
+                <div class="card-content">
+                    <h3 class="product-title">نجفة نحاس بتصميم إسلامي عتيق</h3>
+                    <div class="product-price">1800 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('نجفة نحاس بتصميم إسلامي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="copper-cups">
+                <img src="Copper_3/copper.6.jpeg" class="product-img" alt="طقم فناجين نحاس">
+                <div class="card-content">
+                    <h3 class="product-title">طقم فناجين قهوة نحاسي تركي</h3>
+                    <div class="product-price">490 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طقم فناجين قهوة نحاسي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="copper-panel">
+                <img src="Copper_3/copper.7.jpg" class="product-img" alt="لوحة نحاسية بارزة">
+                <div class="card-content">
+                    <h3 class="product-title">لوحة نحاسية بارزة مؤطرة بالخشب</h3>
+                    <div class="product-price">950 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('لوحة نحاسية بارزة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="copper" id="copper-mortar">
+                <img src="Copper_3/copper.8.jpeg" class="product-img" alt="هون نحاسي">
+                <div class="card-content">
+                    <h3 class="product-title">هون (مدق) نحاسي أثري ثقيل</h3>
+                    <div class="product-price">400 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('هون نحاسي أثري ثقيل', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="haseer" id="haseer-mat">
+                <img src="mats_4/mats.1.jpeg" class="product-img" alt="حصير سمار طبيعي">
+                <div class="card-content">
+                    <h3 class="product-title">حصير يدوي ملون من السمار</h3>
+                    <div class="product-price">350 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حصير يدوي ملون من السمار', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-runner">
+                <img src="mats_4/mats.2.jpeg" class="product-img" alt="مشاية حصير">
+                <div class="card-content">
+                    <h3 class="product-title">مشاية حصير مودرن للمدخل</h3>
+                    <div class="product-price">180 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مشاية حصير مودرن للمدخل', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-prayer">
+                <img src="mats_4/mats.3.jpeg" class="product-img" alt="حصير صلاة">
+                <div class="card-content">
+                    <h3 class="product-title">حصير صلاة تراثي منقوش</h3>
+                    <div class="product-price">220 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حصير صلاة تراثي منقوش', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-coaster">
+                <img src="mats_4/mats.4.webp" class="product-img" alt="مفرش مائدة حصير">
+                <div class="card-content">
+                    <h3 class="product-title">مفرش مائدة حصير دائري ملون</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مفرش مائدة حصير دائري ملون', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-small-basket">
+                <img src="mats_4/mats.5.jpeg" class="product-img" alt="سلة حصير">
+                <div class="card-content">
+                    <h3 class="product-title">سلة حصير صغيرة متعددة الاستخدامات</h3>
+                    <div class="product-price">95 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سلة حصير صغيرة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-curtain">
+                <img src="mats_4/mats.6.jpeg" class="product-img" alt="ستارة حصير">
+                <div class="card-content">
+                    <h3 class="product-title">ستارة حصير ريفية للحماية من الشمس</h3>
+                    <div class="product-price">290 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('ستارة حصير ريفية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-wall">
+                <img src="mats_4/mats.7.jpg" class="product-img" alt="معلقة جدارية حصير">
+                <div class="card-content">
+                    <h3 class="product-title">معلقة جدارية من الحصير والسمار</h3>
+                    <div class="product-price">150 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('معلقة جدارية من الحصير', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="haseer" id="haseer-portable">
+                <img src="mats_4/mats.8.jpg" class="product-img" alt="حصير نزهات">
+                <div class="card-content">
+                    <h3 class="product-title">حصير نزهات قابل للطي وحمل يدوي</h3>
+                    <div class="product-price">210 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حصير نزهات قابل للطي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="embroidery" id="siwi-shawl">
+                <img src="Embroidery_5/Embroidery.1.jfif" class="product-img" alt="شال سيوي">
+                <div class="card-content">
+                    <h3 class="product-title">شال سيوي مطرز يدوي</h3>
+                    <div class="product-price">550 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('شال سيوي مطرز يدوي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="sinai-dress">
+                <img src="Embroidery_5/Embroidery.2.jpeg" class="product-img" alt="ثوب سيناوي">
+                <div class="card-content">
+                    <h3 class="product-title">ثوب مطرز بتصميم سيناوي</h3>
+                    <div class="product-price">2500 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('ثوب مطرز بتصميم سيناوي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="embroidery-cushion">
+                <img src="Embroidery_5/Embroidery.3.jpeg" class="product-img" alt="وسائد مطرزة">
+                <div class="card-content">
+                    <h3 class="product-title">وسائد ديكور مطرزة بالخيوط</h3>
+                    <div class="product-price">250 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('وسائد ديكور مطرزة بالخيوط', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="embroidery-bag">
+                <img src="Embroidery_5/Embroidery.4.jpeg" class="product-img" alt="حقيبة مطرزة">
+                <div class="card-content">
+                    <h3 class="product-title">حقيبة يد نسائية مطرزة بالخرز</h3>
+                    <div class="product-price">320 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حقيبة يد نسائية مطرزة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="wool-shawl">
+                <img src="Embroidery_5/Embroidery.5.jpeg" class="product-img" alt="شال صوف مطرز">
+                <div class="card-content">
+                    <h3 class="product-title">شال صوف شتوي مطرز بالورود</h3>
+                    <div class="product-price">480 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('شال صوف شتوي مطرز', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="contract-handkerchief">
+                <img src="Embroidery_5/Embroidery.6.webp" class="product-img" alt="منديل كتب كتاب">
+                <div class="card-content">
+                    <h3 class="product-title">منديل كتب كتاب مطرز بالأسماء</h3>
+                    <div class="product-price">150 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('منديل كتب كتاب مطرز', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="embroidery-wallet">
+                <img src="Embroidery_5/Embroidery.7.webp" class="product-img" alt="محفظة مطرزة">
+                <div class="card-content">
+                    <h3 class="product-title">محفظة نقود مطرزة يدوياً</h3>
+                    <div class="product-price">850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('محفظة نقود مطرزة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="embroidery" id="golden-abaya">
+                <img src="Embroidery_5/Embroidery.8.jpeg" class="product-img" alt="عباءة مطرزة">
+                <div class="card-content">
+                    <h3 class="product-title">عباءة فاخرة مطرزة بخيوط ذهبية</h3>
+                    <div class="product-price">1600 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('عباءة مطرزة بخيوط ذهبية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="carpet" id="nubian-kilim">
+                <img src="Handmade carpets_6/Handmade carpets.1.jfif" class="product-img" alt="كليم نوبي">
+                <div class="card-content">
+                    <h3 class="product-title">كليم يدوي بنقوش تراثية</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('كليم يدوي بنقوش تراثية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="wool-carpet">
+                <img src="Handmade carpets_6/Handmade carpets.2.jpeg" class="product-img" alt="سجادة صوف">
+                <div class="card-content">
+                    <h3 class="product-title">سجادة صوف حريرية يدوية</h3>
+                    <div class="product-price">3500 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سجادة صوف حريرية يدوية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="kilim-runner">
+                <img src="Handmade carpets_6/Handmade carpets.3.jpeg" class="product-img" alt="مشاية كليم">
+                <div class="card-content">
+                    <h3 class="product-title">مشاية كليم يدوي ملون</h3>
+                    <div class="product-price">600 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مشاية كليم يدوي ملون', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="carpet-nubian-wool">
+                <img src="Handmade carpets_6/Handmade carpets.4.jpeg" class="product-img" alt="سجادة صوف نوبية">
+                <div class="card-content">
+                    <h3 class="product-title">سجادة صوف نوبية ملونة زاهية</h3>
+                    <div class="product-price">2800 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سجادة صوف نوبية ملونة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="modern-kilim">
+                <img src="Handmade carpets_6/Handmade carpets.5.jpeg" class="product-img" alt="كليم مودرن">
+                <div class="card-content">
+                    <h3 class="product-title">كليم مودرن هندسي</h3>
+                    <div class="product-price">750 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('كليم مودرن هندسي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="wall-carpet">
+                <img src="Handmade carpets_6/Handmade carpets.6.jpeg" class="product-img" alt="سجادة حائط">
+                <div class="card-content">
+                    <h3 class="product-title">سجادة حائط صغيرة مزخرفة بالورود</h3>
+                    <div class="product-price">480 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سجادة حائط مزخرفة بالورود', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="thick-runner">
+                <img src="Handmade carpets_6/Handmade carpets.7.jpeg" class="product-img" alt="مشاية ممر">
+                <div class="card-content">
+                    <h3 class="product-title">مشاية ممر صوف كثيف ودافئ يدوياً</h3>
+                    <div class="product-price">950 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مشاية ممر صوف كثيف', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="carpet" id="mini-kilim">
+                <img src="Handmade carpets_6/Handmade carpets.8.jpg" class="product-img" alt="كليم ريفي صغير">
+                <div class="card-content">
+                    <h3 class="product-title">كليم ريفي صغير للمطبخ أو الحمام</h3>
+                    <div class="product-price">180 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('كليم ريفي صغير', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="khayamiya" id="wall-hanging">
+                <img src="tentmaking_7/tentmaking.1.jfif" class="product-img" alt="معلقة خيامية">
+                <div class="card-content">
+                    <h3 class="product-title">معلقة جدارية تراثية</h3>
+                    <div class="product-price">200 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('معلقة جدارية تراثية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="khayameya-cushion">
+                <img src="tentmaking_7/tentmaking.2.jpeg" class="product-img" alt="وسادة خيامية">
+                <div class="card-content">
+                    <h3 class="product-title">وسائد ديكور خيامية</h3>
+                    <div class="product-price">180 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('وسائد ديكور خيامية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="table-runner">
+                <img src="tentmaking_7/tentmaking.3.jpeg" class="product-img" alt="مفرش طاولة">
+                <div class="card-content">
+                    <h3 class="product-title">مفرش طاولة يدوي خيامي</h3>
+                    <div class="product-price">250 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مفرش طاولة يدوي خيامي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="khayameya-tent">
+                <img src="tentmaking_7/tentmaking.4.jpeg" class="product-img" alt="خيمة رمضانية">
+                <div class="card-content">
+                    <h3 class="product-title">خيمة رمضانية مصغرة للديكور المنزلي</h3>
+                    <div class="product-price">650 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('خيمة رمضانية مصغرة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="islamic-hanging">
+                <img src="tentmaking_7/tentmaking.5.jpeg" class="product-img" alt="معلقة إسلامية">
+                <div class="card-content">
+                    <h3 class="product-title">معلقة خيامية بتصميم إسلامي وهلال</h3>
+                    <div class="product-price">190 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('معلقة خيامية بتصميم إسلامي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="khayameya-bag">
+                <img src="tentmaking_7/tentmaking.6.jpeg" class="product-img" alt="حقيبة تسوق خيامية">
+                <div class="card-content">
+                    <h3 class="product-title">حقيبة تسوق صديقة للبيئة خيامية</h3>
+                    <div class="product-price">120 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حقيبة تسوق خيامية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="bedspread-khayameya">
+                <img src="tentmaking_7/tentmaking.7.jpeg" class="product-img" alt="مفرش سرير خيامية">
+                <div class="card-content">
+                    <h3 class="product-title">مفرش سرير قطني بالكامل</h3>
+                    <div class="product-price">1100 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مفرش سرير خيامية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="khayamiya" id="framed-khayameya">
+                <img src="tentmaking_7/tentmaking.8.jpeg" class="product-img" alt="تابلوه خيامية">
+                <div class="card-content">
+                    <h3 class="product-title">تابلوه خيامية</h3>
+                    <div class="product-price">380 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('تابلوه خيامية مؤطر', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="qulla" id="qena-qulla">
+                <img src="Water jug ​​making_8/Water jug ​​making.1.jpeg" class="product-img" alt="قلة قناوي">
+                <div class="card-content">
+                    <h3 class="product-title">قلة قناوي أصلية</h3>
+                    <div class="product-price">45 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قلة قناوي أصلية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="qulla" id="colored-qulla">
+                <img src="Water jug ​​making_8/Water jug ​​making.2.jpeg" class="product-img" alt="قلة ملونة">
+                <div class="card-content">
+                    <h3 class="product-title">قلة ملونة ومزخرفة باليد</h3>
+                    <div class="product-price">75 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قلة ملونة ومزخرفة باليد', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="qulla" id="mini-qullas">
+                <img src="Water jug ​​making_8/Water jug ​​making.3.jpeg" class="product-img" alt="قلل صغيرة">
+                <div class="card-content">
+                    <h3 class="product-title">قلل زينة مصغرة</h3>
+                    <div class="product-price">60 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قلل زينة مصغرة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="qulla" id="rural-qulla-set">
+                <img src="Water jug ​​making_8/Water jug ​​making.4.jpg" class="product-img" alt="طقم قلل زينة">
+                <div class="card-content">
+                    <h3 class="product-title">طقم قلل زينة ريفي مكون من 3 قطع</h3>
+                    <div class="product-price">160 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طقم قلل زينة ريفي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="qulla" id="cooling-qulla">
+                <img src="Water jug ​​making_8/Water jug ​​making.5.jpeg" class="product-img" alt="قلة تبريد مياه">
+                <div class="card-content">
+                    <h3 class="product-title">قلة تبريد مياه طبيعية طينية تقليدية</h3>
+                    <div class="product-price">55 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قلة تبريد مياه', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="qulla" id="qulla-statue">
+                <img src="Water jug ​​making_8/Water jug ​​making.6.jpeg" class="product-img" alt="مجسم قلة">
+                <div class="card-content">
+                    <h3 class="product-title">مجسم قلة أثري كلاسيكي مصغر للديكور</h3>
+                    <div class="product-price">80 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مجسم قلة للديكور', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-craft="leather" id="classic-bag">
+                <img src="Leather tanning_9/Leather tanning.1.jpeg" class="product-img" alt="حقيبة جلد">
+                <div class="card-content">
+                    <h3 class="product-title">حقائب جلدية كلاسيكية</h3>
+                    <div class="product-price">950 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حقائب جلدية كلاسيكية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="accessories">
+                <img src="Leather tanning_9/Leather tanning.2.jpeg" class="product-img" alt="إكسسوارات جلد">
+                <div class="card-content">
+                    <h3 class="product-title">إكسسوارات جلدية محفورة</h3>
+                    <div class="product-price">250 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('إكسسوارات جلدية محفورة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="jacket">
+                <img src="Leather tanning_9/Leather tanning.3.jpeg" class="product-img" alt="سترة جلد">
+                <div class="card-content">
+                    <h3 class="product-title">سترات جلدية مصنوعة يدوياً</h3>
+                    <div class="product-price">1800 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سترات جلدية مصنوعة يدوياً', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="classic-wallet">
+                <img src="Leather tanning_9/Leather tanning.4.webp" class="product-img" alt="محفظة جلد">
+                <div class="card-content">
+                    <h3 class="product-title">محفظة جلد طبيعي مدبوغ كلاسيكية</h3>
+                    <div class="product-price">290 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('محفظة جلد طبيعي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="braided-belt">
+                <img src="Leather tanning_9/Leather tanning.5.jpeg" class="product-img" alt="حزام جلد">
+                <div class="card-content">
+                    <h3 class="product-title">حزام جلد طبيعي مضفر يدوي للرجال</h3>
+                    <div class="product-price">180 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حزام جلد طبيعي مضفر', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="leather-backpack">
+                <img src="Leather tanning_9/Leather tanning.6.jpeg" class="product-img" alt="حقيبة ظهر جلد">
+                <div class="card-content">
+                    <h3 class="product-title">حقيبة ظهر جلد يدوية الصنع متينة</h3>
+                    <div class="product-price">1350 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حقيبة ظهر جلد يدوية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="laptop-case">
+                <img src="Leather tanning_9/Leather tanning.7.webp" class="product-img" alt="حافظة لابتوب جلد">
+                <div class="card-content">
+                    <h3 class="product-title">حافظة لابتوب جلدية ناعمة مبطنة</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حافظة لابتوب جلدية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="leather" id="leather-keychain">
+                <img src="Leather tanning_9/Leather tanning.8.jpeg" class="product-img" alt="حامل مفاتيح جلد">
+                <div class="card-content">
+                    <h3 class="product-title">حامل مفاتيح من الجلد الطبيعي</h3>
+                    <div class="product-price">75 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حامل مفاتيح جلد طبيعي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="baskets" id="laundry-basket">
+                <img src="Baskets_10/Baskets.1.jpeg" class="product-img" alt="سلة غسيل">
+                <div class="card-content">
+                    <h3 class="product-title">سلال غسيل ومنظمات خوص</h3>
+                    <div class="product-price">320 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سلال غسيل ومنظمات خوص', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="wicker-bag">
+                <img src="Baskets_10/Baskets.2.webp" class="product-img" alt="حقيبة خوص">
+                <div class="card-content">
+                    <h3 class="product-title">حقائب خوص صيفية</h3>
+                    <div class="product-price">240 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حقائب خوص صيفية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="fruit-plate">
+                <img src="Baskets_10/Baskets.3.jpeg" class="product-img" alt="أطباق خوص">
+                <div class="card-content">
+                    <h3 class="product-title">أطباق تقديم ديكورية ملونة</h3>
+                    <div class="product-price">120 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أطباق تقديم ديكورية ملونة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="wicker-drawers">
+                <img src="Baskets_10/Baskets.4.webp" class="product-img" alt="وحدة أدراج خوص">
+                <div class="card-content">
+                    <h3 class="product-title">وحدة أدراج خوص للتخزين والتنظيم</h3>
+                    <div class="product-price">850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('وحدة أدراج خوص للتخزين', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="wicker-hat">
+                <img src="Baskets_10/Baskets.5.jpeg" class="product-img" alt="قبعة خوص">
+                <div class="card-content">
+                    <h3 class="product-title">قبعة خوص صيفية كلاسيكية للوقاية</h3>
+                    <div class="product-price">110 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قبعة خوص كلاسيكية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="wicker-lamp">
+                <img src="Baskets_10/Baskets.6.jpeg" class="product-img" alt="أباجورة خوص">
+                <div class="card-content">
+                    <h3 class="product-title">أباجورة خوص ريفية دافئة الإضاءة</h3>
+                    <div class="product-price">390 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أباجورة خوص ريفية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="plant-wicker-cover">
+                <img src="Baskets_10/Baskets.7.jpeg" class="product-img" alt="غطاء نباتات خوص">
+                <div class="card-content">
+                    <h3 class="product-title">غطاء نباتات وتزيين قوارير الخوص</h3>
+                    <div class="product-price">140 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('غطاء نباتات خوص', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="baskets" id="picnic-basket">
+                <img src="Baskets_10/Baskets.8.jpeg" class="product-img" alt="سلة نزهات">
+                <div class="card-content">
+                    <h3 class="product-title">سلة نزهات مجهزة بمقابض جلدية</h3>
+                    <div class="product-price">480 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('سلة نزهات مجهزة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="glass" id="lighting">
+                <img src="glassmaking_11/glassmaking.1.jpeg" class="product-img" alt="إضاءة زجاج">
+                <div class="card-content">
+                    <h3 class="product-title">وحدات إضاءة زجاجية ملونة</h3>
+                    <div class="product-price">850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('وحدات إضاءة زجاجية ملونة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="pitchers">
+                <img src="glassmaking_11/glassmaking.2.jpeg" class="product-img" alt="أواني زجاج">
+                <div class="card-content">
+                    <h3 class="product-title">أواني ودوارق زجاجية منفوخة</h3>
+                    <div class="product-price">290 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أواني ودوارق زجاجية منفوخة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="perfume-bottles">
+                <img src="glassmaking_11/glassmaking.3.webp" class="product-img" alt="زجاجات عطور">
+                <div class="card-content">
+                    <h3 class="product-title">زجاجات عطور وتحف كلاسيكية</h3>
+                    <div class="product-price">150 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('زجاجات عطور وتحف كلاسيكية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="glass-vase-colored">
+                <img src="glassmaking_11/glassmaking.4.jpeg" class="product-img" alt="فازة زجاجية">
+                <div class="card-content">
+                    <h3 class="product-title">فازة زجاجية منفوخة يدوياً ملونة</h3>
+                    <div class="product-price">340 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فازة زجاجية ملونة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="glass-cup-heritage">
+                <img src="glassmaking_11/glassmaking.5.jpeg" class="product-img" alt="كأس زجاجي">
+                <div class="card-content">
+                    <h3 class="product-title">كأس زجاجي تراثي مزخرف يدوياً</h3>
+                    <div class="product-price">85 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('كأس زجاجي تراثي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="stained-glass-lamp">
+                <img src="glassmaking_11/glassmaking.6.jpeg" class="product-img" alt="أباجورة زجاج معشق">
+                <div class="card-content">
+                    <h3 class="product-title">أباجورة زجاجية معشقة ومنقوشة</h3>
+                    <div class="product-price">1200 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أباجورة زجاجية معشقة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="glass-chandelier">
+                <img src="glassmaking_11/glassmaking.7.jpeg" class="product-img" alt="ثريا زجاجية">
+                <div class="card-content">
+                    <h3 class="product-title">ثريا زجاجية ملونة يدوية الصنع</h3>
+                    <div class="product-price">2500 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('ثريا زجاجية ملونة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="glass" id="glass-swirl">
+                <img src="glassmaking_11/glassmaking.8.jpeg" class="product-img" alt="تحفة زجاجية لولبية">
+                <div class="card-content">
+                    <h3 class="product-title">تحفة فنية زجاجية لولبية متموجة</h3>
+                    <div class="product-price">270 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('تحفة فنية زجاجية لولبية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="metal" id="silver-jewelry">
+                <img src="handmade metals_12/handmade metals.1.webp" class="product-img" alt="فضة">
+                <div class="card-content">
+                    <h3 class="product-title">حلي وإكسسوارات فضية يدوية</h3>
+                    <div class="product-price">1100 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حلي وإكسسوارات فضية يدوية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="iron-candleholder">
+                <img src="handmade metals_12/handmade metals.2.jpg" class="product-img" alt="شمعدان">
+                <div class="card-content">
+                    <h3 class="product-title">شمعدانات حديد مشغول</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('شمعدانات حديد مشغول', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="hammered-plate">
+                <img src="handmade metals_12/handmade metals.3.jpeg" class="product-img" alt="أطباق مطروقة">
+                <div class="card-content">
+                    <h3 class="product-title">أطباق وديكورات معدنية مطروقة</h3>
+                    <div class="product-price">320 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أطباق وديكورات معدنية مطروقة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="silver-ring-925">
+                <img src="handmade metals_12/handmade metals.4.jpeg" class="product-img" alt="خاتم فضة">
+                <div class="card-content">
+                    <h3 class="product-title">خاتم فضه بصناعة يدوية</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('خاتم فضة يدوي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="metal-frame">
+                <img src="handmade metals_12/handmade metals.5.jpeg" class="product-img" alt="إطار صور معدني">
+                <div class="card-content">
+                    <h3 class="product-title">إطار صور معدني مزخرف بفن النقش</h3>
+                    <div class="product-price">190 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('إطار صور معدني مزخرف', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="metal-statue-heritage">
+                <img src="handmade metals_12/handmade metals.6.jpeg" class="product-img" alt="مجسم معدني">
+                <div class="card-content">
+                    <h3 class="product-title">مجسم معدني تراثي كلاسيكي للمكتب</h3>
+                    <div class="product-price">580 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مجسم معدني تراثي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="silver-keepsake-box">
+                <img src="handmade metals_12/handmade metals.7.webp" class="product-img" alt="صندوق فضة">
+                <div class="card-content">
+                    <h3 class="product-title">صندوق فضة صغير لحفظ الذكريات</h3>
+                    <div class="product-price">750 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صندوق فضة للذكريات', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="metal" id="silver-necklace-arabic">
+                <img src="handmade metals_12/handmade metals.8.webp" class="product-img" alt="قلادة فضية">
+                <div class="card-content">
+                    <h3 class="product-title">قلادة فضية بنقوش خطوط عربية</h3>
+                    <div class="product-price">680 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قلادة فضية خطوط عربية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="ceramic" id="painted-plates">
+                <img src="Porcelain_13/Porcelain.1.jpeg" class="product-img" alt="أطباق خزف">
+                <div class="card-content">
+                    <h3 class="product-title">أطباق خزفية مزخرفة باليد</h3>
+                    <div class="product-price">350 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أطباق خزفية مزخرفة باليد', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="colored-vase">
+                <img src="Porcelain_13/Porcelain.2.jpeg" class="product-img" alt="فازة خزف">
+                <div class="card-content">
+                    <h3 class="product-title">فازات خزفية بألوان زاهية</h3>
+                    <div class="product-price">420 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فازات خزفية بألوان زاهية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="coffee-cups">
+                <img src="Porcelain_13/Porcelain.3.jpeg" class="product-img" alt="فناجين خزف">
+                <div class="card-content">
+                    <h3 class="product-title">فناجين قهوة خزفية فريدة</h3>
+                    <div class="product-price">180 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فناجين قهوة خزفية فريدة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="ceramic-tiles">
+                <img src="Porcelain_13/Porcelain.4.jpeg" class="product-img" alt="بلاطات خزفية">
+                <div class="card-content">
+                    <h3 class="product-title">بلاطات خزفية جدارية ملونة ومبهجة</h3>
+                    <div class="product-price">210 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('بلاطات خزفية جدارية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="ceramic-dinnerware-set">
+                <img src="Porcelain_13/Porcelain.5.jpeg" class="product-img" alt="طقم عشاء خزفي">
+                <div class="card-content">
+                    <h3 class="product-title">طقم عشاء خزفي متكامل ملوّن يدوياً</h3>
+                    <div class="product-price">1900 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طقم عشاء خزفي متكامل', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="ceramic-candleholder">
+                <img src="Porcelain_13/Porcelain.6.jpeg" class="product-img" alt="حامل شموع خزفي">
+                <div class="card-content">
+                    <h3 class="product-title">حامل شموع خزفي بتصميم دائري عصري</h3>
+                    <div class="product-price">130 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حامل شموع خزفي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="ceramic-mug-wood">
+                <img src="Porcelain_13/Porcelain.7.jpg" class="product-img" alt="مج خزفي">
+                <div class="card-content">
+                    <h3 class="product-title">مج خزفي بمقبض خشبي معزول ومميز</h3>
+                    <div class="product-price">120 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مج خزفي بمقبض خشبي', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="ceramic" id="large-ceramic-bowl">
+                <img src="Porcelain_13/Porcelain.8.jpeg" class="product-img" alt="وعاء سلطة خزفي">
+                <div class="card-content">
+                    <h3 class="product-title">وعاء سلطة خزفي كبير ومزخرف يدوياً</h3>
+                    <div class="product-price">310 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('وعاء سلطة خزفي كبير', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="mosaic" id="wall-mural">
+                <img src="Mosaic_14/Mosaic.1.jpeg" class="product-img" alt="لوحة فسيفساء">
+                <div class="card-content">
+                    <h3 class="product-title">لوحات جدارية فسيفساء</h3>
+                    <div class="product-price">1500 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('لوحات جدارية فسيفساء', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="mosaic" id="mosaic-table">
+                <img src="Mosaic_14/Mosaic.2.jpeg" class="product-img" alt="طاولة فسيفساء">
+                <div class="card-content">
+                    <h3 class="product-title">طاولات مزينة بالفسيفساء</h3>
+                    <div class="product-price">1850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طاولات مزينة بالفسيفساء', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="mosaic" id="mosaic-tray">
+                <img src="Mosaic_14/Mosaic.3.jpeg" class="product-img" alt="صينية فسيفساء">
+                <div class="card-content">
+                    <h3 class="product-title">صواني وديكورات موزاييك</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صواني وديكورات موزاييك', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="mosaic" id="mosaic-mirror">
+                <img src="Mosaic_14/Mosaic.4.jpeg" class="product-img" alt="مرآة فسيفساء">
+                <div class="card-content">
+                    <h3 class="product-title">مرآة دائرية بإطار فسيفساء ملون أنيق</h3>
+                    <div class="product-price">890 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('مرآة بإطار فسيفساء', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="mosaic" id="turkish-mosaic-lamp">
+                <img src="Mosaic_14/Mosaic.5.webp" class="product-img" alt="أباجورة فسيفساء">
+                <div class="card-content">
+                    <h3 class="product-title">أباجورة فسيفساء تركية ملونة ساحرة</h3>
+                    <div class="product-price">620 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('أباجورة فسيفساء تركية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="mosaic" id="mosaic-glass-vase">
+                <img src="Mosaic_14/Mosaic.6.jpeg" class="product-img" alt="فازة فسيفساء">
+                <div class="card-content">
+                    <h3 class="product-title">فازة مغطاة بمكعبات الفسيفساء الفنية</h3>
+                    <div class="product-price">340 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('فازة بمكعبات الفسيفساء', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="mosaic" id="mosaic-coaster-set">
+                <img src="Mosaic_14/Mosaic.7.jpeg" class="product-img" alt="كوستر أكواب">
+                <div class="card-content">
+                    <h3 class="product-title">طقم كواستر أكواب فسيفساء مقاوم للحرارة</h3>
+                    <div class="product-price">180 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('طقم كواستر أكواب فسيفساء', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-craft="woodcarving" id="carved-panel">
+                <img src="Sculpture_15/Sculpture.1.webp" class="product-img" alt="لوحة خشب">
+                <div class="card-content">
+                    <h3 class="product-title">لوحات جدارية خشبية بارزة</h3>
+                    <div class="product-price">900 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('لوحات جدارية خشبية بارزة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="wood-statue">
+                <img src="Sculpture_15/Sculpture.2.webp" class="product-img" alt="تمثال خشب">
+                <div class="card-content">
+                    <h3 class="product-title">تماثيل ومجسمات خشبية</h3>
+                    <div class="product-price">650 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('تماثيل ومجسمات خشبية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="carved-box">
+                <img src="Sculpture_15/Sculpture.3.jpeg" class="product-img" alt="علبة خشب">
+                <div class="card-content">
+                    <h3 class="product-title">صناديق وعلب خشبية محفورة</h3>
+                    <div class="product-price">500 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صناديق وعلب خشبية محفورة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="carved-cane">
+                <img src="Sculpture_15/Sculpture.4.jpg" class="product-img" alt="عصا مشي خشبية">
+                <div class="card-content">
+                    <h3 class="product-title">عصا مشي خشبية وقور منحوتة يدوياً</h3>
+                    <div class="product-price">320 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('عصا مشي خشبية منحوتة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="heritage-wood-mask">
+                <img src="Sculpture_15/Sculpture.5.jpeg" class="product-img" alt="قناع خشبي">
+                <div class="card-content">
+                    <h3 class="product-title">قناع جداري خشبي منحوت بدقة فائقة</h3>
+                    <div class="product-price">450 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('قناع جداري خشبي منحوت', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="carved-wall-clock">
+                <img src="Sculpture_15/Sculpture.6.jpeg" class="product-img" alt="ساعة حائط">
+                <div class="card-content">
+                    <h3 class="product-title">ساعة حائط خشبية منحوتة بقطع كلاسيكية</h3>
+                    <div class="product-price">850 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('ساعة حائط خشبية منحوتة', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="carved-book-holder">
+                <img src="Sculpture_15/Sculpture.7.jpeg" class="product-img" alt="حامل كتب خشبي">
+                <div class="card-content">
+                    <h3 class="product-title">حامل كتب خشبي منقوش للمكتبة المنزلية</h3>
+                    <div class="product-price">240 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('حامل كتب خشبي منقوش', this)">إضافة للسلة</button>
+                </div>
+            </div>
+            <div class="product-card" data-craft="woodcarving" id="high-relief-wood-tray">
+                <img src="Sculpture_15/Sculpture.8.jpeg" class="product-img" alt="صينية نحت بارز">
+                <div class="card-content">
+                    <h3 class="product-title">صينية نحت بارز خشبية فاخرة للضيافة</h3>
+                    <div class="product-price">600 ج.م</div>
+                    <button class="buy-btn" onclick="addToCart('صينية نحت بارز خشبية', this)">إضافة للسلة</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="cart-container" id="cartView" style="display:none;">
+        <a href="#" class="header-link" onclick="showStoreView(); return false;">→ الرجوع للمتجر</a>
+        <h1 class="cart-title">سلة التسوق</h1>
+
+        <div class="cart-empty" id="emptyCartMsg" style="display:none;">
+            السلة فارغة حالياً
+            <br>
+            <a href="#" onclick="showStoreView(); return false;">تصفح المنتجات</a>
+        </div>
+
+        <div class="cart-list" id="cartList"></div>
+
+        <div class="cart-summary" id="cartSummary" style="display:none;">
+            <span class="cart-summary-label">الإجمالي الكلي</span>
+            <span class="cart-summary-total" id="cartTotal">0 ج.م</span>
+        </div>
+    </div>
+
+<script>
+    function getCart() {
+        return JSON.parse(localStorage.getItem('cartItems') || '[]');
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem('cartItems', JSON.stringify(cart));
+    }
+
+    function updateCartCount() {
+        const cart = getCart();
+        const total = cart.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById('cartCount').innerText = total;
+    }
+
+    function addToCart(name, btn) {
+        const card = btn ? btn.closest('.product-card') : null;
+        const id = card ? card.id : name;
+        const image = card ? card.querySelector('.product-img').getAttribute('src') : '';
+        const priceText = card ? card.querySelector('.product-price').innerText : '0';
+        const price = parseInt(priceText.replace(/[^0-9]/g, ''), 10) || 0;
+
+        const cart = getCart();
+        const existing = cart.find(item => item.id === id);
+        if (existing) {
+            existing.qty++;
+        } else {
+            cart.push({ id, name, price, image, qty: 1 });
+        }
+        saveCart(cart);
+        updateCartCount();
+        alert(` تم إضافة "${name}" إلى عربة التسوق!`);
+    }
+
+    function showCartView() {
+        document.querySelector('.filter-section').style.display = 'none';
+        document.querySelector('.store-container').style.display = 'none';
+        document.getElementById('cartView').style.display = 'block';
+        renderCart();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showStoreView() {
+        document.getElementById('cartView').style.display = 'none';
+        document.querySelector('.filter-section').style.display = 'block';
+        document.querySelector('.store-container').style.display = 'block';
+    }
+
+    function renderCart() {
+        const cart = getCart();
+        const list = document.getElementById('cartList');
+        const emptyMsg = document.getElementById('emptyCartMsg');
+        const summary = document.getElementById('cartSummary');
+
+        if (cart.length === 0) {
+            list.innerHTML = '';
+            emptyMsg.style.display = 'block';
+            summary.style.display = 'none';
+            return;
+        }
+
+        emptyMsg.style.display = 'none';
+        summary.style.display = 'flex';
+
+        list.innerHTML = cart.map(item => `
+            <div class="cart-item" data-id="${item.id}">
+                <img src="${item.image}" class="cart-item-img" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h3 class="cart-item-name">${item.name}</h3>
+                    <div class="cart-item-price">${item.price} ج.م للقطعة</div>
+                    <div class="cart-qty-control">
+                        <button class="qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
+                        <span class="qty-value">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+                    </div>
+                </div>
+                <div class="cart-item-actions">
+                    <div class="cart-item-subtotal">${item.price * item.qty} ج.م</div>
+                    <div class="cart-action-btns">
+                        <button class="cart-edit-btn" onclick="editItem('${item.id}')">تعديل</button>
+                        <button class="cart-delete-btn" onclick="deleteItem('${item.id}')">حذف</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        document.getElementById('cartTotal').innerText = `${total} ج.م`;
+    }
+
+    function changeQty(id, delta) {
+        let cart = getCart();
+        const item = cart.find(p => p.id === id);
+        if (!item) return;
+
+        item.qty += delta;
+        if (item.qty <= 0) {
+            cart = cart.filter(p => p.id !== id);
+        }
+        saveCart(cart);
+        updateCartCount();
+        renderCart();
+    }
+
+    function deleteItem(id) {
+        let cart = getCart();
+        cart = cart.filter(p => p.id !== id);
+        saveCart(cart);
+        updateCartCount();
+        renderCart();
+    }
+
+    function editItem(id) {
+        let cart = getCart();
+        cart = cart.filter(p => p.id !== id);
+        saveCart(cart);
+        updateCartCount();
+        showStoreView();
+        alert("تم إزالة المنتج القديم من السلة، تقدر تختار منتج جديد بداله دلوقتي!");
+    }
+
+    function scrollAndHighlightProduct(id) {
+        const targetCard = document.getElementById(id);
+        if (!targetCard) return;
+
+        filterByCraft('all', document.querySelector('.dropdown-item'));
+
+        setTimeout(() => {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetCard.classList.add('highlight-pulse');
+            setTimeout(() => {
+                targetCard.classList.remove('highlight-pulse');
+            }, 3000);
+        }, 400);
+    }
+
+    function toggleMenu() {
+        const menu = document.getElementById('craftMenu');
+        const btn = document.getElementById('filterBtn');
+        menu.classList.toggle('show');
+        btn.classList.toggle('active');
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.filter-btn') && !event.target.matches('.arrow-icon')) {
+            const dropdowns = document.getElementsByClassName("dropdown-menu");
+            const btn = document.getElementById('filterBtn');
+            for (let i = 0; i < dropdowns.length; i++) {
+                let openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                    btn.classList.remove('active');
+                }
+            }
+        }
+    }
+
+    function filterByCraft(craft, element) {
+        document.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
+        if(element) element.classList.add('active');
+
+        const btn = document.getElementById('filterBtn');
+        if(element) {
+            btn.innerHTML = `${element.innerText} <span class="arrow-icon">▼</span>`;
+        }
+
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(card => {
+            const productCraft = card.getAttribute('data-craft');
+            if (craft === 'all' || productCraft === craft) {
+                card.style.display = 'flex';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(15px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCartCount();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productParam = urlParams.get('product');
+
+        if (productParam) {
+            scrollAndHighlightProduct(productParam);
+        }
+    });
+</script>
+</body>
+</html>

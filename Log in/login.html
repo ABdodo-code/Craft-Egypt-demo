@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد - Craft Egypt</title>
+    <link rel="icon" type="image/png" href="logo-Tab.png">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+<a href="../Homepage/Homepage.html" class="home-btn">الرئيسية </a>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>إنشاء حساب جديد</h2>
+        <p class="subtitle">سجل بياناتك للانضمام إلينا</p>
+
+        <form id="signupForm">
+            <div class="input-group">
+                <label>اسم المستخدم</label>
+                <input type="text" id="username" required>
+            </div>
+
+            <div class="input-group">
+                <label>البريد الإلكتروني</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="input-group">
+                <label>كلمة المرور</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="input-group">
+                <label>تأكيد كلمة المرور</label>
+                <input type="password" id="confirm_password" required>
+            </div>
+
+            <div class="password-requirements" style="
+                background: #fdfbf7;
+                border: 1px dashed rgba(214, 157, 88, 0.4);
+                border-radius: 12px;
+                padding: 10px 14px;
+                margin-bottom: 15px;
+                text-align: right;
+                box-sizing: border-box;
+                animation: fadeInUp 0.6s ease-out 0.5s both;
+            ">
+                <span style="display: block; font-size: 13px; font-weight: 700; color: #4B3A2F; margin-bottom: 6px; border-bottom: 1px solid rgba(75, 58, 47, 0.1); padding-bottom: 4px;">شروط كلمة المرور:</span>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; font-size: 11.5px;">
+                    <span id="req-length" style="color: #c0392b; font-weight: 600; display: flex; align-items: center; gap: 4px; transition: color 0.3s ease;">❌ 8 أحرف أو أكثر</span>
+                    <span id="req-upper" style="color: #c0392b; font-weight: 600; display: flex; align-items: center; gap: 4px; transition: color 0.3s ease;">❌ حرف كبير (A-Z)</span>
+                    <span id="req-lower" style="color: #c0392b; font-weight: 600; display: flex; align-items: center; gap: 4px; transition: color 0.3s ease;">❌ حرف صغير (a-z)</span>
+                    <span id="req-number" style="color: #c0392b; font-weight: 600; display: flex; align-items: center; gap: 4px; transition: color 0.3s ease;">❌ رقم واحد على الأقل</span>
+                    <span id="req-special" style="color: #c0392b; font-weight: 600; display: flex; align-items: center; gap: 4px; transition: color 0.3s ease; grid-column: span 2;">❌ رمز خاص (@$!%*?&)</span>
+                </div>
+            </div>
+
+            <button class="login-btn" type="submit">إنشاء الحساب</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById("password");
+    const reqs = {
+        length: { regex: /.{8,}/, element: document.getElementById("req-length"), text: "8 أحرف أو أكثر" },
+        upper: { regex: /[A-Z]/, element: document.getElementById("req-upper"), text: "حرف كبير (A-Z)" },
+        lower: { regex: /[a-z]/, element: document.getElementById("req-lower"), text: "حرف صغير (a-z)" },
+        number: { regex: /[0-9]/, element: document.getElementById("req-number"), text: "رقم واحد على الأقل" },
+        special: { regex: /[!@#$%^&*(),.?":{}|<>]/, element: document.getElementById("req-special"), text: "رمز خاص (@$!%*?&)" }
+    };
+
+    passwordInput.addEventListener("input", function() {
+        const val = this.value;
+        for (let key in reqs) {
+            const isValid = reqs[key].regex.test(val);
+            if (isValid) {
+                reqs[key].element.style.color = "#27ae60";
+                reqs[key].element.innerHTML = "✔️ " + reqs[key].text;
+            } else {
+                reqs[key].element.style.color = "#c0392b";
+                reqs[key].element.innerHTML = "❌ " + reqs[key].text;
+            }
+        }
+    });
+
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm_password").value;
+
+        let isPasswordSecure = true;
+        for (let key in reqs) {
+            if (!reqs[key].regex.test(password)) {
+                isPasswordSecure = false;
+                break;
+            }
+        }
+
+        if (!isPasswordSecure) {
+            alert("يرجى استيفاء جميع شروط كلمة المرور المطلوبة!");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("كلمة المرور وتأكيد كلمة المرور غير متطابقين!");
+            return;
+        }
+
+        if (username !== "" && email !== "" && password !== "") {
+            localStorage.setItem("loggedIn", "true");
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userName", username);
+
+            alert("تم إنشاء الحساب بنجاح!");
+            window.location.href = "../Homepage/Homepage.html";
+        }
+    });
+</script>
+
+</body>
+</html>

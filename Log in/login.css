@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(43, 31, 23, 0.75), rgba(43, 31, 23, 0.75)), url('background-login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 560px;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 25px 45px; 
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.login-box h2 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 28px;
+    color: #2c1a0e;
+    animation: fadeInDown 0.6s ease-out 0.2s both;
+}
+
+.subtitle {
+    margin: 4px 0 20px;
+    color: #605045;
+    font-size: 15px;
+    font-weight: 600;
+    animation: fadeInDown 0.6s ease-out 0.3s both;
+}
+
+.input-group {
+    text-align: right;
+    margin-bottom: 14px; 
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #4B3A2F;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 2px solid rgba(75, 58, 47, 0.15);
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #fcfbfa;
+    color: #2c1a0e;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.input-group input:focus {
+    border-color: #d69d58;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(214, 157, 88, 0.15);
+    transform: translateX(-3px);
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px;
+    background: linear-gradient(135deg, #4B3A2F 0%, #2c1a0e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(75, 58, 47, 0.25);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #d69d58 0%, #4B3A2F 100%);
+    box-shadow: 0 12px 30px rgba(214, 157, 88, 0.4);
+    transform: translateY(-3px);
+}
+
+.login-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.home-btn {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    background: #d69d58;
+    color: #4B3A2F;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 9999;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-btn:hover {
+    background: #fcecdb;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(214, 157, 88, 0.35);
+}
+
+.home-btn:active {
+    transform: translateY(-1px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 580px) {
+    .login-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+    .login-box {
+        padding: 25px 20px;
+    }
+    .login-box h2 {
+        font-size: 24px;
+    }
+    .home-btn {
+        top: 20px;
+        left: 20px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,187 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background-image: linear-gradient(rgba(43, 31, 23, 0.75), rgba(43, 31, 23, 0.75)), url('background-support.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 20px;
+    direction: rtl; 
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.home-button {
+    position: fixed; 
+    bottom: 30px;    
+    left: 30px;      
+    background-color: #d69d58; 
+    color: #1a100a;
+    padding: 12px 24px;
+    border-radius: 30px; 
+    text-decoration: none; 
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 990; 
+    direction: rtl; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-button:hover {
+    background-color: #fcecdb; 
+    color: #4B3A2F;
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.home-button:active {
+    transform: translateY(-1px);
+}
+
+.success-alert {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(25, 135, 84, 0.95);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: top 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    text-align: center;
+    min-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.support-container {
+    width: 100%;
+    max-width: 660px;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.support-card {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 25px 45px;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.support-card h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #2c1a0e;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.support-card p {
+    font-size: 15px;
+    color: #605045;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 14px;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #4a382b;
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 16px;
+    border: 2px solid rgba(75, 58, 47, 0.15);
+    border-radius: 12px;
+    box-sizing: border-box; 
+    transition: all 0.3s ease;
+    font-size: 15px;
+    font-family: 'Cairo', sans-serif;
+    background-color: #fcfbfa;
+    color: #2c1a0e;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #d69d58; 
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(214, 157, 88, 0.15);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4B3A2F 0%, #2c1a0e 100%);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(75, 58, 47, 0.25);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #d69d58 0%, #4B3A2F 100%);
+    box-shadow: 0 12px 30px rgba(214, 157, 88, 0.4);
+    transform: translateY(-3px);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+    .support-card {
+        padding: 25px 20px;
+    }
+    .support-card h2 {
+        font-size: 22px;
+    }
+    .home-button {
+        bottom: 20px;
+        left: 20px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}

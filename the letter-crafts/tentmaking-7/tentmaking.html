@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تفاصيل الحرفة — Craft Egypt</title>
+  <link rel="icon" type="image/png" href="logo-Tab.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    
+:root {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --accent: #c7a880; 
+  --dark: #4B3A2F;
+  --muted: #666;
+  --container: 1100px;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  font-weight: 900;
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.main-nav a {
+  margin-left: 18px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  right: 0;
+  background-color: var(--accent);
+  transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.page {
+  padding: 28px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: start;
+}
+
+@media(max-width:980px) { 
+  .hero { grid-template-columns: 1fr; } 
+  .hero-right { order: 2; }
+  .hero-left { order: 1; }
+}
+
+.main-photo {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.main-photo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.main-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.main-photo:hover::after {
+  left: 150%;
+}
+
+.main-photo img {
+  width: 100%;
+  height: 517px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.main-photo:hover img {
+  transform: scale(1.04);
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.thumb {
+  width: 84px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.8;
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.thumb:hover {
+  opacity: 1;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.thumb.active {
+  border-color: var(--accent);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.hero-right {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-right:hover {
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.item-title {
+  font-size: 26px;
+  margin: 4px 0 6px;
+  font-weight: 900;
+}
+
+.item-short {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.meta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.meta-key {
+  font-weight: 700;
+  color: #333;
+  margin-right: 8px;
+}
+
+.meta-val {
+  color: var(--muted);
+}
+
+.meta-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fbfbfb;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.meta-list li:hover {
+  background: #f1f1f1;
+  transform: translateX(-3px);
+}
+
+.copy-btn {
+  background: #f3f3f3;
+  border: 1px solid #eee;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-inline-start: 8px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.06);
+  cursor: pointer;
+  background: #fff;
+  font-weight: 700;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  background-color: #fbfbfb;
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn.ghost:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.section {
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+  transition: box-shadow 0.4s ease;
+}
+
+.section:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.section h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: var(--dark);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media(max-width:900px) {
+  .two-col { grid-template-columns: 1fr; } 
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+}
+
+@media(max-width:980px) {
+  .media-grid { grid-template-columns: 1fr; } 
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.prod-card {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.prod-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.prod-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(90, 70, 50, 0.12);
+}
+
+.prod-card:hover::after {
+  left: 150%;
+}
+
+.prod-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.prod-card:hover img {
+  transform: scale(1.06) rotate(0.5deg);
+}
+
+.prod-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 100%);
+}
+
+.prod-body h3 {
+  color: #5A4632;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.prod-card:hover .prod-body h3 {
+  color: var(--accent);
+}
+
+.prod-link {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #5A4632;
+  border: 2px solid #e6d9a1;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  display: inline-block;
+  margin-top: auto;
+  box-shadow: 0 4px 10px rgba(90, 70, 50, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.prod-link:hover {
+  background-color: #ffc766;
+  color: #5A4632;
+  border-color: #5A4632;
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 6px 15px rgba(90, 70, 50, 0.3);
+}
+
+.prod-link:active {
+  transform: scale(0.97);
+}
+
+.tools-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.small .btn {
+  padding: 8px 10px;
+}
+
+.site-footer {
+  padding: 20px 0;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+@media print {
+  .site-header, .actions, .thumbs, .edu-link, .main-nav { display: none; }
+  .main-photo img { height: auto; }
+}
+
+.text-video-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  height: 230px;
+  margin: 25px auto;
+  background: linear-gradient(135deg, #c7a880 0%, #4B3A2F 100%);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: dynamicPulse 3s ease-in-out infinite;
+}
+
+.text-video-box:hover {
+  transform: translateY(-8px) scale(1.03) rotate(0.5deg);
+  box-shadow: 0 15px 30px rgba(90, 70, 50, 0.3);
+  background: linear-gradient(135deg, #d3b793 0%, #5c483a 100%);
+}
+
+@keyframes dynamicPulse {
+  0% {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+  50% {
+    box-shadow: 0 15px 30px rgba(199, 168, 128, 0.3);
+  }
+  100% {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../The letter/theletter.html">الرجوع لصفحة الحرف</a>
+
+      <nav class="main-nav">
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="main-photo">
+          <img id="mainImage" src="tentmaking1.jfif" alt="الخيامية">
+        </div>
+
+        <div class="thumbs" aria-hidden="false">
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <h1 class="item-title">الخيامية</h1>
+        <p class="item-short">تطريز وزخرفة أقمشة كبيرة بأنماط هندسية ملونة تُستخدم كسواتر أو مفارش.</p>
+
+        <ul class="meta-list">
+          <li><span class="meta-key">نوع الحرفة:</span> <span class="meta-val">الخيامية</span></li>
+          <li><span class="meta-key">اسم الحرفي:</span> <span class="meta-val">ست نجلاء الخيامية</span></li>
+          <li><span class="meta-key">المحافظة:</span> <span class="meta-val">القاهرة (المنطقة النوبية وقُرى الصعيد)</span></li>
+          <li><span class="meta-key">تاريخ التوثيق:</span> <span class="meta-val">2024-12-01</span></li>
+          <li><span class="meta-key">السعر:</span> <span class="meta-val">800 ج.م</span></li>
+          <li><span class="meta-key">كود المنتج:</span> 
+            <span class="meta-val code" id="prodCode">p-005</span>
+            <button class="copy-btn" onclick="copyCode()">نسخ</button>
+          </li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn ghost" href="#khayameya-products">قسم المنتجات</a>
+        </div>
+
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>الوصف الكامل</h2>
+      <p class="lead">
+      فن الخيامية يعتمد على خياطة وتطريز قطع قماش مع طبقات ألوان وزخارف هندسية؛ رائج في الاحتفالات والزينة.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <h3>معلومات تقنية</h3>
+          <ul>
+            <li>الخامات: قطن، خيوط ملونة</li>
+            <li>طريقة التصنيع: قطع وخياطة، تطريز يدوي</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>قصة القطعة</h3>
+          <p>قصّ الحرفي قماش ملون بأنماط هندسية، وبدأ يخيطها يدويًا واحدة جنب التانية. التأثير النهائي كان لوحة من الفن الشعبي المبهج اللي ليه تاريخ طويل في مصر.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section media">
+      <div class="media-grid">
+        <div>
+          <h2>فيديو توثيقي</h2>
+          <a href="https://drive.google.com/file/d/1MPmBwqLunEdTjp67aGQ8Ua43Q3j6HuCe/view?usp=sharing" target="_blank" class="text-video-box"> شاهد الفيلم الوثائقي</a>
+        </div>
+
+        <div>
+          <h2>صور إضافية</h2>
+          <div class="gallery">
+            <img src="tentmaking2.jfif" alt="">
+            <img src="tentmaking3.jfif" alt="">
+            <img src="tentmaking4.jfif" alt="">
+            <img src="tentmaking5.jfif" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="khayameya-products" class="section">
+      <h2>منتجات فن الخيامية</h2>
+      <p class="lead">اكتشف روعة التصاميم والزخارف الإسلامية والتراثية المنسوجة يدوياً بطريقة قص وتطبيق القماش.</p>
+
+      <div class="prod-grid">
+        <article class="prod-card">
+          <img src="tentmaking6.jpeg" alt="معلقة جدارية من الخيامية">
+          <div class="prod-body">
+            <h3>معلقة جدارية تراثية</h3>
+            <a href="../../store/store.html" class="prod-link">عرض المزيد</a>
+          </div>
+        </article>
+
+        <article class="prod-card">
+          <img src="tentmaking7.jpeg" alt="وسادة ديكور بنقش خيامية">
+          <div class="prod-body">
+            <h3>وسائد ديكور خيامية</h3>
+            <a href="../../store/store.html" class="prod-link">عرض المزيد</a>
+          </div>
+        </article>
+
+        <article class="prod-card">
+          <img src="tentmaking8.jpeg" alt="مفرش طاولة بتصميم خيامي ملون">
+          <div class="prod-body">
+            <h3>مفرش طاولة يدوي</h3>
+            <a href="../../store/store.html" class="prod-link">عرض المزيد</a>
+          </div>
+        </article>
+      </div>
+</section>
+
+    <section class="section small">
+      <h2>مشاركات وتنزيلات</h2>
+      <div class="tools-row">
+        <button class="btn" onclick="printPage()">طباعة الصفحة</button>
+        <button class="btn" onclick="shareItem()">مشاركة</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Craft Egypt — توثيق الحرف والتراث المصري</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.thumb').forEach(t => {
+      t.addEventListener('click', () => {
+        document.getElementById('mainImage').src = t.dataset.full;
+        document.querySelectorAll('.thumb').forEach(x=>x.classList.remove('active'));
+        t.classList.add('active');
+      });
+    });
+
+    function copyCode() {
+      const code = document.getElementById('prodCode').innerText;
+      navigator.clipboard?.writeText(code).then(()=>{
+        alert('تم نسخ الكود: ' + code);
+      }).catch(()=>{ alert('نسخ غير متاح'); });
+    }
+
+    function printPage(){ window.print(); }
+
+    function shareItem(){
+      const title = document.querySelector('.item-title').innerText;
+      const text = document.querySelector('.item-short').innerText;
+      const url = location.href;
+      if(navigator.share){
+        navigator.share({title,text,url}).catch(()=>{});
+      } else {
+        prompt('انسخ رابط المشاركة:', url);
+      }
+    }
+  </script>
+
+</body>
+</html>
