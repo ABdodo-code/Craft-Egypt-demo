@@ -403,3 +403,93 @@ a.boton-elegante {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+
+@media screen and (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        padding: 10px 15px;
+        text-align: center;
+        gap: 10px;
+    }
+
+    header nav {
+        margin-right: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    header nav a {
+        font-size: 13px;
+        margin: 2px 4px;
+        padding: 6px 8px;
+    }
+
+    #login-area {
+        margin-top: 5px;
+    }
+
+    .welcome {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    #home {
+        padding-bottom: 50px;
+    }
+
+    #home h1 {
+        font-size: 32px;
+        padding-top: 30px;
+    }
+
+    #home h2 {
+        font-size: 18px;
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
+    #home p {
+        font-size: 14px;
+        max-width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .boton-elegante {
+        padding: 12px 24px;
+        font-size: 1rem;
+        margin: 30px auto 10px auto;
+    }
+
+    .services-grid {
+        gap: 15px;
+    }
+
+    .service-box {
+        width: 100%;
+        max-width: 300px;
+        padding: 20px;
+    }
+
+    .sec-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .vision-text {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .demo-banner {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+}
