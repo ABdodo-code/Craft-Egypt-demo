@@ -405,91 +405,69 @@ a.boton-elegante {
 }
 
 @media screen and (max-width: 768px) {
+    
+    .demo-banner {
+        position: relative !important;
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        box-sizing: border-box;
+    }
 
     header {
+        position: relative !important;
+        top: 0 !important;
+        width: 100% !important;
+        padding: 15px 10px;
         flex-direction: column;
-        padding: 10px 15px;
-        text-align: center;
-        gap: 10px;
+        align-items: center;
+        box-sizing: border-box;
     }
 
     header nav {
         margin-right: 0;
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px;
+        gap: 6px;
+        width: 100%;
+        margin-top: 10px;
     }
 
     header nav a {
         font-size: 13px;
-        margin: 2px 4px;
-        padding: 6px 8px;
+        margin: 2px 3px;
+        padding: 4px 6px;
     }
 
     #login-area {
-        margin-top: 5px;
+        margin-top: 8px;
     }
 
     .welcome {
-        margin-left: 10px;
-        font-size: 13px;
+        margin-left: 5px;
+        font-size: 12px;
     }
 
-    .logout-btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
-
-    #home {
-        padding-bottom: 50px;
+    body {
+        padding-top: 0 !important;
     }
 
     #home h1 {
         font-size: 32px;
-        padding-top: 30px;
+        padding-top: 20px;
     }
 
     #home h2 {
-        font-size: 18px;
-        margin-top: 40px;
-        padding: 0 15px;
+        font-size: 16px;
+        margin-top: 30px;
+        padding: 0 10px;
     }
 
     #home p {
-        font-size: 14px;
-        max-width: 90%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .boton-elegante {
-        padding: 12px 24px;
-        font-size: 1rem;
-        margin: 30px auto 10px auto;
-    }
-
-    .services-grid {
-        gap: 15px;
-    }
-
-    .service-box {
-        width: 100%;
-        max-width: 300px;
-        padding: 20px;
-    }
-
-    .sec-title {
-        font-size: 26px;
-        margin-bottom: 25px;
-    }
-
-    .vision-text {
-        font-size: 16px;
-        padding: 0 15px;
-    }
-
-    .demo-banner {
-        font-size: 0.75rem;
-        padding: 6px 10px;
+        font-size: 13px;
+        padding: 0 10px;
     }
 }
